@@ -1,4 +1,4 @@
-import { generateFolderPath } from './pathToThisFile.js';
+import { generateFolderPath } from './folderPathGenerator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const currentRootDirectoryElement = document.getElementById('currentRootDirectory');
