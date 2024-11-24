@@ -1,5 +1,3 @@
-import { generateFolderPath } from './folderPathGenerator.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     const currentRootDirectoryElement = document.getElementById('currentRootDirectory');
 
@@ -8,9 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (result.rootDirectory) {
             currentRootDirectoryElement.textContent = result.rootDirectory;
         } else {
-            currentRootDirectoryElement.textContent = (async () => {
-                generateFolderPath("HI")
-            });
+            currentRootDirectoryElement.textContent = "Loading root directory"
         }
     });
 });
