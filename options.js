@@ -3,15 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     selectButton.addEventListener('click', async () => {
       try {
         const directoryHandle = await window.showDirectoryPicker();
-        const permission = await directoryHandle.requestPermission({ mode: 'readwrite' });
-        if (permission !== 'granted') {
-          alert('Permission denied.');
-          return;
+        console.log("the directory is: ", directoryHandle);
+
+         // Verify permission
+         const permission = await directoryHandle.requestPermission({ mode: 'readwrite' });
+         if (permission !== 'granted') {
+             throw new Error("Permission not granted for directory.");
         }
+
         // Store the directory handle
-        const idb = await navigator.storage.persist(); // Optional: Ensure storage persistence
         await chrome.storage.local.set({ baseDirectory: directoryHandle });
-        console.log('Directory handle saved successfully!');
+        console.log('Directory handle saved successfully: ', directoryHandlePath);
       } catch (error) {
         console.error('Error selecting directory:', error);
       }
