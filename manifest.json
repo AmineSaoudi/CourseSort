@@ -3,7 +3,7 @@
   "name": "Selected Element Viewer",
   "version": "1.0",
   "description": "Displays the HTML of the selected box.",
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
@@ -12,5 +12,6 @@
       "48": "icon.png",
       "128": "icon.png"
     }
-  }
+  },
+  "options_page": "options.html"
 }

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selected Element Viewer</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 10px;
-      }
-      #output {
-        margin-top: 10px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        background: #f9f9f9;
-      }
-    </style>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <h3>Selected Element</h3>
-    <div id="output">No item selected.</div>
+    <h1>Current Root Directory</h1>
+    <p id="currentRootDirectory">Loading...</p>
+    <div class="link-container">
+      <a href="chrome://extensions/?options=<extension_id>" target="_blank"
+        >Change Root Directory</a
+      >
+    </div>
+    <div class="footer">Powered by Selected Element Viewer</div>
     <script src="popup.js"></script>
   </body>
 </html>
