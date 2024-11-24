@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Download Organizer</title>
-</head>
-<body>
-  <h1>Download Organizer</h1>
-  <p>This extension organizes your downloads based on the URL.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selected Element Viewer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Current Root Directory</h1>
+    <p id="currentRootDirectory">Loading...</p>
+    <div class="link-container">
+      <a href="chrome://extensions/?options=<extension_id>" target="_blank"
+        >Change Root Directory</a
+      >
+    </div>
+    <div class="footer">Powered by Selected Element Viewer</div>
+    <script src="popup.js"></script>
+  </body>
 </html>

@@ -1,10 +1,16 @@
-document.getElementById("extract-html").addEventListener("click", () => {
-    chrome.runtime.sendMessage({ command: "getHTML" }, (response) => {
-      if (response && response.html) {
-        document.getElementById("html-content").textContent = response.html;
-      } else {
-        document.getElementById("html-content").textContent = "Failed to retrieve HTML.";
-      }
+import { generateFolderPath } from './pathToThisFile.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentRootDirectoryElement = document.getElementById('currentRootDirectory');
+
+    // Load and display the saved root directory
+    chrome.storage.local.get(['rootDirectory'], (result) => {
+        if (result.rootDirectory) {
+            currentRootDirectoryElement.textContent = result.rootDirectory;
+        } else {
+            currentRootDirectoryElement.textContent = (async () => {
+                generateFolderPath("HI")
+            });
+        }
     });
-  });
-  
+});
