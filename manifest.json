@@ -1,14 +1,21 @@
 {
-    "manifest_version": 3,
-    "name": "Download Organizer",
-    "version": "1.0",
-    "permissions": ["downloads", "scripting"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icon.png"
-    }
-  }
-  
+  "manifest_version": 3,
+  "name": "Custom File Downloader",
+  "version": "1.0",
+  "description": "A Chrome extension to organize downloads into custom directories.",
+  "permissions": [
+    "downloads",
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

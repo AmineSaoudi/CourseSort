@@ -1,10 +1,16 @@
-document.getElementById("extract-html").addEventListener("click", () => {
-    chrome.runtime.sendMessage({ command: "getHTML" }, (response) => {
-      if (response && response.html) {
-        document.getElementById("html-content").textContent = response.html;
-      } else {
-        document.getElementById("html-content").textContent = "Failed to retrieve HTML.";
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+  if (message.type === 'reauthorize') {
+    try {
+      const directoryHandle = await window.showDirectoryPicker();
+      const permission = await directoryHandle.requestPermission({ mode: 'readwrite' });
+      if (permission !== 'granted') {
+        console.error('Permission denied.');
+        return;
       }
-    });
-  });
-  
+      await chrome.storage.local.set({ baseDirectory: directoryHandle });
+      console.log('Directory reauthorized.');
+    } catch (error) {
+      console.error('Error reauthorizing directory:', error);
+    }
+  }
+});
