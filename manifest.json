@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Displays the HTML of the selected box.",
   "permissions": ["storage", "scripting", "activeTab"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://mycourses2.mcgill.ca/d2l/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
